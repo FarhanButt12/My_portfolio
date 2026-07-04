@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Background dot grid pattern */
+.bg-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Custom scrollbar for a premium dark look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 4px;
+  border: 2px solid #030712;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee;
+}
+
+/* Print Styles for Dynamic Resume Generation */
+@media print {
+  /* Hide everything by default */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  #root > div > *:not(#resume-print-view) {
+    display: none !important;
+  }
+
+  /* Make only the print view visible and expand to fit page */
+  #resume-print-view {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide interactive widgets */
+  .fixed, nav, footer, button, .custom-cursor {
+    display: none !important;
+  }
+}
+
